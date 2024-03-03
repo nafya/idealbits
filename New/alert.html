@@ -1,0 +1,39 @@
+<!-- dynamic_expense_tracker.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Expense Tracker</title>
+    <script>
+        // Function to check expenses dynamically
+        function checkExpenses() {
+            // Get values from the form
+            var averageBudget = parseFloat(document.getElementById("average_budget").value);
+            var totalExpenses = parseFloat(document.getElementById("total_expenses").value);
+
+            // Calculate 90% of the average budget
+            var threshold = 0.9 * averageBudget;
+
+            // Check if total expenses are beyond 90% of the average budget
+            if (totalExpenses >= threshold) {
+                alert('Total expenses have reached 90% of the average budget!');
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Dynamic Expense Tracker</h2>
+    
+    <form>
+        <label for="average_budget">Average Budget:</label>
+        <input type="number" id="average_budget" placeholder="Enter average budget">
+        
+        <label for="total_expenses">Total Expenses:</label>
+        <input type="number" id="total_expenses" value="0" onchange="checkExpenses()">
+
+        <!-- This button is optional, you can perform the check on each expense change -->
+        <button type="button" onclick="checkExpenses()">Check Expenses</button>
+    </form>
+</body>
+</html>
